@@ -1,0 +1,1178 @@
+/* --- CUSTOM FONT IMPORTS --- */
+@font-face {
+    font-family: 'Anodina'; 
+    src: url('./fonts/Anodina-Regular.otf') format('opentype');
+    font-weight: 400; 
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Anodina'; 
+    src: url('./fonts/Anodina-Light.otf') format('opentype');
+    font-weight: 300; 
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Anodina'; 
+    src: url('./fonts/Anodina-Bold.otf') format('opentype');
+    font-weight: 700; 
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Anodina'; 
+    src: url('./fonts/Anodina-ExtraLight.otf') format('opentype');
+    font-weight: 200; 
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Impact'; 
+    src: url('./fonts/impact.ttf') format('truetype');
+    font-weight: 400; 
+    font-style: normal;
+}
+
+/* --- GLOBAL RESET & BASE STYLES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+body {
+    background-color: #000;
+    font-family: 'Anodina', sans-serif;
+    overflow-x: hidden;
+    color: #EDEDED;
+}
+
+/* --- HEADER --- */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+
+}
+
+.logo-container a img {
+    width: 450px;
+    height: auto;
+}
+
+.menu-icon {
+    width: 50px; 
+    height: 40px; 
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+    transition: transform 0.3s;
+    z-index: 1100;
+}
+
+.line {
+    width: 100%;
+    height: 6px; 
+    background-color: #ce2a0b; 
+    transition: all 0.3s ease;
+}
+.line:nth-child(2) {
+    width: 80%;
+}
+
+/* --- DIMMER & OFF-CANVAS MENU --- */
+.dimmer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s, visibility 0.5s;
+    z-index: 1040;
+}
+
+body.menu-open .dimmer-overlay {
+    visibility: visible;
+    opacity: 1;
+}
+
+.off-canvas-menu {
+    position: fixed;
+    top: 0;
+    right: -35%; 
+    width: 35%; 
+    height: 100vh;
+    background-color: #ce2a0b; 
+    z-index: 1050;
+    transition: right 0.5s cubic-bezier(0.86, 0, 0.07, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end; 
+    padding-right: 10%;
+}
+
+.off-canvas-menu.open {
+    right: 0; 
+}
+
+.menu-links {
+    list-style: none;
+    text-align: right; 
+}
+
+.menu-links li {
+    margin: 40px 0; 
+    overflow: hidden;
+}
+
+.menu-links a {
+    text-decoration: none;
+    color: #000; 
+    font-family: 'Impact', sans-serif;
+    font-weight: 400;
+    font-size: 7.5rem; 
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: inline-block;
+    transition: color 0.3s;
+}
+
+.menu-links a:hover {
+    color: #EDEDED; 
+}
+
+/* --- ABOUT US SECTION --- */
+.about-section {
+    min-height: 50vh;
+    padding: 120px 0;
+}
+
+.about-content-full-width {
+    max-width: 900px;
+    margin: 0 auto; 
+}
+
+.about-subheader-bold {
+    color: #E8E8E8; 
+    font-family: 'Anodina', sans-serif;
+    font-size: 2.5rem; 
+    text-transform: uppercase;
+    margin-top: 60px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 700; 
+    letter-spacing: 1px;
+}
+
+.about-body-main {
+    color: #EDEDED;
+    font-size: 2.25rem;
+    line-height: 1.4;
+    font-family: 'Anodina', sans-serif;
+    font-weight: 300; 
+    letter-spacing: 1px;
+    margin-bottom: 30px; 
+    text-align: justify;
+}
+
+.highlight-text {
+    color: #ce2a0b; 
+    font-weight: 700; 
+}
+
+.red-bracket-text {
+    color: #ce2a0b; 
+}
+
+.back-home-btn {
+    display: block;
+    width: fit-content;
+    margin: 50px auto 0 auto;
+    color: #ce2a0b;
+    font-family: 'Anodina', sans-serif;
+    text-decoration: none;
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    padding: 15px 40px;
+    border: 2px solid #ce2a0b;
+    font-weight: 700;
+    transition: background-color 0.3s, color 0.3s;
+    text-align: center;
+}
+.back-home-btn:hover {
+    background-color: #ce2a0b;
+    color: #000;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 1024px) {
+    .main-header { padding: 20px 40px; }
+    .logo-container a img { width: 320px; }
+    .about-body-main { font-size: 1.8rem; }
+    .about-subheader-bold { font-size: 2.2rem; }
+}
+
+@media (max-width: 768px) {
+    .main-header { padding: 15px 25px; }
+    .logo-container a img { width: 260px; }
+    .menu-icon { width: 45px; height: 35px; }
+    .line { height: 5px; }
+    .menu-links a { font-size: 4rem; }
+    .about-body-main { font-size: 1.5rem; text-align: center; }
+    .about-subheader-bold { font-size: 2rem; }
+    .back-home-btn { font-size: 1.2rem; padding: 12px 25px; }
+}
+
+@media (max-width: 480px) {
+    .logo-container a img { width: 200px; }
+    .menu-links a { font-size: 2.8rem; }
+    .about-body-main { font-size: 1.3rem; }
+    .about-subheader-bold { font-size: 1.8rem; }
+}
+
+
+/* --- GLOBAL CONTAINER & TYPOGRAPHY --- */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 0;
+}
+
+.section-title-wide {
+    color: #ce2a0b; 
+    font-family: 'Anodina', sans-serif;
+    font-size: 3.5rem; 
+    text-transform: uppercase;
+    margin-bottom: 60px;
+    text-align: center;
+    font-weight: 700; 
+}
+
+/* --- 1. HEADER STYLING --- */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px; 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    background-color: transparent; 
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+}
+
+.main-header.scroll-hide {
+    transform: translateY(-100%);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-container a {
+    display: block;
+    line-height: 0;
+}
+
+.agency-logo {
+    width: 450px; 
+    height: auto;
+    display: block;
+}
+
+.menu-icon {
+    width: 50px; 
+    height: 40px; 
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+    transition: transform 0.3s;
+    z-index: 1100;
+}
+
+.line {
+    width: 100%;
+    height: 6px; 
+    background-color: #ce2a0b; 
+    transition: all 0.3s ease;
+}
+.line:nth-child(2) {
+    width: 80%;
+}
+
+.menu-icon.open .line:nth-child(1) {
+    transform: none; 
+}
+.menu-icon.open .line:nth-child(2) {
+    opacity: 0; 
+}
+.menu-icon.open .line:nth-child(3) {
+    transform: none; 
+}
+
+
+
+
+
+
+.about-section {
+    min-height: 50vh;
+    padding-bottom: 150px;
+}
+
+.about-content-full-width {
+    max-width: 900px;
+    margin: 0 auto; 
+}
+
+.about-body-main {
+    color: #EDEDED;
+    font-size: 2.25rem;
+    line-height: 1.4;
+    font-family: 'Anodina', sans-serif;
+    font-weight: 300; 
+    letter-spacing: 1px;
+    margin-bottom: 30px; 
+}
+
+.about-body-secondary {
+    color: #999;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    font-family: 'Anodina', sans-serif;
+    font-weight: 400; 
+}
+
+.highlight-text {
+    color: #ce2a0b; 
+    font-weight: 700; 
+}
+
+.inline-dots {
+    color: #ce2a0b; 
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.about-subheader-bold {
+    color: #E8E8E8; 
+    font-family: 'Anodina', sans-serif;
+    font-size: 2.5rem; 
+    text-transform: uppercase;
+    margin-top: 60px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 700; 
+    letter-spacing: 1px;
+}
+
+.red-bracket-text {
+    color: #ce2a0b; 
+}
+
+.about-content-full-width .about-subheader-bold:first-child {
+    margin-top: 0;
+}
+
+.read-more-link-button {
+    display: block;
+    width: fit-content;
+    margin: 50px auto 0 auto; 
+    color: #ce2a0b; 
+    font-family: 'Anodina', sans-serif;
+    text-decoration: none;
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    padding: 15px 40px;
+    border: 2px solid #ce2a0b; 
+    font-weight: 700;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.read-more-link-button:hover {
+    background-color: #ce2a0b; 
+    color: #000;
+}
+
+
+/* --- 4. SERVICES SECTION STYLING --- */
+.services-section {
+    padding-bottom: 100px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.service-block {
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.service-number, .service-headline {
+    font-family: 'Anodina', sans-serif;
+    font-weight: 700;
+}
+
+.service-number {
+    color: #ce2a0b; 
+    font-size: 4rem;
+    margin-bottom: 10px;
+    display: block;
+    line-height: 1;
+}
+
+.service-headline {
+    color: #E8E8E8; 
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.service-body {
+    color: #999;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-family: 'Anodina', sans-serif;
+    font-weight: 400; 
+}
+
+.view-work-btn {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    color: #ce2a0b; 
+    font-family: 'Anodina', sans-serif;
+    text-decoration: none;
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    padding: 10px 20px;
+    border: 2px solid #ce2a0b; 
+    font-weight: 700;
+    transition: background-color 0.3s;
+}
+.view-work-btn:hover {
+    background-color: #ce2a0b; 
+    color: #000;
+}
+
+/* --- 5. CONTACT SECTION STYLING --- */
+.contact-section {
+    padding-top: 0;
+    padding-bottom: 150px;
+}
+
+.contact-cta-headline {
+    color: #EDEDED;
+    /* Main headline font (READY FOR) */
+    font-family: 'Anodina', sans-serif; 
+    font-size: 3rem;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 60px;
+    /* UPDATED: Bold font-weight */
+    font-weight: 700; 
+    /* Desktop: Use flex for inline alignment */
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap; 
+}
+
+.contact-cta-headline .red-text {
+    color: #ce2a0b; 
+    /* Consolidated Impact font for brackets and dynamic term */
+    font-family: 'Impact', sans-serif; 
+}
+
+.dynamic-text-wrapper {
+    display: inline-flex; 
+    justify-content: center;
+    transition: width 0.3s ease-out; 
+    overflow: hidden; 
+    padding: 0 5px; 
+}
+
+.dynamic-term {
+    display: inline-block;
+    transition: opacity 0.3s ease-in-out; 
+}
+
+
+.contact-form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+    background: none;
+    border: none;
+    border-bottom: 1px solid #EDEDED;
+    color: #EDEDED;
+    padding: 10px 0;
+    font-size: 1rem;
+    font-family: 'Anodina', sans-serif;
+    font-weight: 400; 
+}
+
+.contact-form textarea {
+    grid-column: 1 / -1;
+    height: 100px;
+    resize: none;
+}
+
+.contact-form button {
+    grid-column: 1 / -1;
+    width: 250px;
+    margin: 30px auto 0 auto;
+    background-color: #ce2a0b; 
+    color: #000;
+    border: none;
+    padding: 15px 30px;
+    font-family: 'Anodina', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: opacity 0.3s;
+}
+
+.contact-info {
+    text-align: center;
+    font-family: 'Anodina', sans-serif;
+    color: #999;
+}
+.contact-info p {
+    font-size: 1rem;
+}
+
+/* Footer/Copyright Style */
+.contact-info .copyright-text {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: #555;
+}
+
+
+/* === ADD THIS NEW BLOCK FOR THE BANNER SECTION === */
+.hero {
+    /* 1. Essential: Set the dimensions */
+    width: 100%;
+    height: 1080px; /* <--- CRITICAL: Defines the visible area for the image. Adjust as needed. */
+
+    /* 2. Positioning: Push it below the fixed header (if needed) */
+    /* Based on your .main-header padding (20px top + 20px bottom) and logo size, 
+       this ensures the banner sits below the fixed navigation. */
+    /* margin-top: 100px;  */
+
+    /* 3. Image Path (Using the RELATIVE path based on your file structure) */
+    background-image: url("photos/_MG_3535.png"); 
+    /* NOTE: I strongly recommend using the relative path "photos/_MG_3535.png" 
+       instead of the absolute path "/photos/_MG_3535.png" to avoid local file/server issues. */
+
+    /* 4. Image Display Properties */
+    background-repeat: no-repeat; /* Don't tile the image */
+    background-position: center; /* Center the image within the element */
+    background-size: cover;
+   
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+       only screen and (min-resolution: 192dpi),
+       only screen and (min-resolution: 2dppx) {
+    .hero {
+        /* NOTE: You must have a file named _MG_3535@2x.png or similar that is twice the size */
+        background-image: url("photos/_MG_3535.png"); 
+    }
+}
+/* --- RESPONSIVE ADJUSTMENT for Hero (Optional but Recommended) --- */
+@media (max-width: 1024px) {
+    .hero { 
+        height: 300px; /* Make the banner slightly shorter on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .hero { 
+        height: 250px; /* Make the banner shorter on small screens */
+        margin-top: 65px; /* Adjust margin for smaller fixed header */
+    }
+}
+
+.contact-info {
+    text-align: center;
+    font-family: 'Anodina', sans-serif;
+    color: #999;
+      padding: 30px;
+}
+.contact-info p {
+    font-size: 1rem;
+}
+
+/* Footer/Copyright Style */
+.contact-info .copyright-text {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: #555;
+  
+}
+
+
+
+.off-canvas-menu {
+    position: fixed;
+    top: 0;
+    right: -35%; 
+    width: 35%; 
+    height: 100vh;
+    background-color: #ce2a0b; 
+    z-index: 1050;
+    transition: right 0.5s cubic-bezier(0.86, 0, 0.07, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end; 
+    padding-right: 10%;
+    padding: 20px;
+}
+
+.off-canvas-menu.open {
+    right: 0; 
+}
+
+.menu-links {
+    list-style: none;
+    text-align: right; 
+}
+
+.menu-links li {
+    margin: 40px 0; 
+    overflow: hidden;
+}
+
+.menu-links a {
+    text-decoration: none;
+    color: #000; 
+    font-family: 'Impact', sans-serif;
+    font-weight: 400;
+    font-size: 7.5rem; 
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: inline-block;
+    transition: color 0.3s;
+}
+
+.menu-links a:hover {
+    color: #EDEDED; 
+}
+
+.contact-info {
+    text-align: center;
+    font-family: 'Anodina', sans-serif;
+    color: #999;
+      padding: 30px;
+}
+.contact-info p {
+    font-size: 1rem;
+}
+
+
+
+
+
+
+/* --- RESPONSIVE DESIGN (TABLETS) --- */
+@media (max-width: 1024px) {
+    .main-header {
+        padding: 20px 40px; 
+    }
+    .agency-logo {
+        width: 320px; 
+    }
+    .off-canvas-menu {
+        width: 75%; 
+        right: -75%;
+        padding-right: 5%;
+    }
+    
+    .top-text {
+        font-size: 10vw;
+    }
+    .main-text {
+        font-size: 18vw;
+    }
+    
+    .hero-cta-btn {
+        bottom: 50px; 
+    }
+
+    .about-body-main {
+        font-size: 1.8rem;
+    }
+    .about-body-secondary {
+        font-size: 1.2rem;
+    }
+    .about-subheader-bold {
+        font-size: 2.2rem;
+        margin-top: 40px;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr 1fr; 
+        gap: 30px;
+    }
+    
+    .contact-form {
+        max-width: 700px;
+    }
+}
+
+/* --- RESPONSIVE DESIGN (PHONES) --- */
+@media (max-width: 768px) {
+    .main-header {
+        padding: 15px 25px;
+    }
+    .agency-logo {
+        width: 260px;
+    }
+    .menu-icon {
+        width: 45px; 
+        height: 35px;
+    }
+    .line {
+        height: 5px;
+    }
+    
+    .menu-links li {
+        margin: 20px 0;
+    }
+    .menu-links a {
+        font-size: 4rem; 
+    }
+    
+    .top-text {
+        font-size: 14vw; 
+        margin-bottom: -15px; 
+    }
+    .main-text {
+        font-size: 24vw; 
+        transform: scaleY(1); 
+    }
+    
+    .hero-cta-btn {
+        bottom: 40px; 
+        font-size: 1.2rem;
+        padding: 12px 25px;
+    }
+    
+    .section-title-wide {
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+    }
+
+    /* Mobile Contact Headline Fix: Stack the text */
+    .contact-cta-headline {
+        font-size: 2rem;
+        margin-bottom: 40px;
+        /* Change to block/stacked layout */
+        display: block; 
+        white-space: normal; 
+    }
+    
+    .contact-cta-headline .red-text {
+        /* Force the entire red block onto its own centered line */
+        display: block; 
+        text-align: center;
+        width: 100%;
+        line-height: 1.2;
+        /* Force wrapping for the content inside this block (brackets + dynamic word) */
+        white-space: normal; 
+    }
+    
+    .contact-cta-headline {
+        text-align: center;
+        width: 100%;
+        line-height: 1.2;
+    }
+
+
+    /* FIX: Dynamic wrapper adjusted to flow inline with the brackets, but allow its content to wrap */
+    .dynamic-text-wrapper {
+        display: inline; /* Allows text elements to flow naturally with surrounding brackets */
+        width: auto !important; 
+        max-width: 100%; 
+        padding: 0;
+        line-height: 1.2;
+    }
+
+    /* Ensure the dynamic term itself allows normal text flow */
+    .dynamic-term {
+        display: inline; /* Changed to inline to allow continuous text flow and wrapping */
+        text-align: center;
+        padding: 0;
+        white-space: normal; 
+    }
+    
+    /* NEW: Centering text in the About section for screens <= 700px */
+    @media (max-width: 700px) {
+        .about-content-full-width,
+        .about-body-main {
+            text-align: center;
+        }
+        /* Ensure the read more button stays centered */
+        .read-more-link-button {
+            margin: 50px auto 0 auto;
+        }
+    }
+
+
+    .read-more-link-button {
+        padding: 12px 25px;
+        font-size: 1.2rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr; 
+    }
+
+    .contact-form {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+    }
+}
+
+/* --- RESPONSIVE DESIGN (SMALL PHONES) --- */
+@media (max-width: 480px) {
+    .container {
+        padding: 60px 0;
+    }
+    .main-header {
+        padding: 15px 20px; 
+    }
+    .agency-logo {
+        width: 200px; 
+    }
+    .menu-links a {
+        font-size: 2.8rem; 
+    }
+    
+    .top-text {
+        font-size: 16vw; 
+        margin-bottom: -10px; 
+    }
+    .main-text {
+        font-size: 26vw;
+    }
+    
+    .about-body-main {
+        font-size: 1.3rem;
+    }
+    .about-body-secondary {
+        font-size: 1rem;
+    }
+    
+    .about-subheader-bold {
+        font-size: 1.8rem;
+    }
+    
+    .contact-cta-headline {
+        font-size: 1.8rem;
+    }
+}
+
+
+
+.off-canvas-menu {
+    position: fixed;
+    top: 0;
+    right: -35%; 
+    width: 35%; 
+    height: 100vh;
+    background-color: #ce2a0b; 
+    z-index: 1050;
+    transition: right 0.5s cubic-bezier(0.86, 0, 0.07, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end; 
+    padding-right: 10%;
+    padding: 20px;
+}
+
+.off-canvas-menu.open {
+    right: 0; 
+}
+
+.menu-links {
+    list-style: none;
+    text-align: right; 
+}
+
+.menu-links li {
+    margin: 40px 0; 
+    overflow: hidden;
+}
+
+.menu-links a {
+    text-decoration: none;
+    color: #000; 
+    font-family: 'Impact', sans-serif;
+    font-weight: 400;
+    font-size: 7.5rem; 
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: inline-block;
+    transition: color 0.3s;
+}
+
+.menu-links a:hover {
+    color: #EDEDED; 
+}
+
+.contact-info {
+    text-align: center;
+    font-family: 'Anodina', sans-serif;
+    color: #999;
+      padding: 30px;
+}
+.contact-info p {
+    font-size: 1rem;
+}
+
+/* --- RESPONSIVE DESIGN (TABLETS: 1024px and below) --- */
+@media (max-width: 1024px) {
+    /* Header/Menu */
+    .main-header { padding: 20px 40px; }
+    .agency-logo { width: 320px; }
+    .off-canvas-menu {
+        width: 75%; 
+        right: -75%;
+        padding-right: 5%;
+    }
+    .menu-links a { font-size: 5.5rem; }
+    
+    /* Hero Section */
+    .top-text { font-size: 10vw; }
+    .main-text { font-size: 18vw; }
+    .hero-cta-btn { font-size: 1.4rem; padding: 14px 28px; }
+
+    /* About Section */
+    .about-body-main { font-size: 1.8rem; }
+    .about-subheader-bold { font-size: 2.2rem; margin-top: 40px; }
+    
+    /* Services Section */
+    .services-grid {
+        grid-template-columns: 1fr 1fr; /* 2 columns for tablets */
+        gap: 30px;
+    }
+    
+    /* Contact Section */
+    .contact-cta-headline { font-size: 2.5rem; }
+    .contact-form { max-width: 700px; }
+}
+
+/* --- RESPONSIVE DESIGN (PHONES: 768px and below) --- */
+@media (max-width: 768px) {
+    /* Global Container/Spacing */
+    .container { padding: 60px 20px; }
+    
+    /* Header/Menu */
+    .main-header { padding: 15px 25px; }
+    .agency-logo { width: 220px; }
+    .menu-icon { width: 40px; height: 30px; }
+    .line { height: 4px; }
+    .off-canvas-menu { width: 90%; right: -90%; }
+    .menu-links li { margin: 20px 0; }
+    .menu-links a { font-size: 3.5rem; }
+    
+    /* Hero Section */
+    .top-text { font-size: 14vw; margin-bottom: -10px; }
+    .main-text { font-size: 24vw; }
+    .hero-cta-btn { bottom: 30px; font-size: 1.1rem; padding: 10px 20px; }
+    
+    /* Section Titles */
+    .section-title-wide { font-size: 2.2rem; margin-bottom: 30px; }
+
+    /* About Section (Text Alignment and Size) */
+    .about-body-main { 
+        font-size: 1.5rem; 
+        text-align: center; /* Center align for mobile readability */
+    }
+    .about-subheader-bold { 
+        font-size: 1.8rem; 
+        margin-top: 30px;
+    }
+    .read-more-link-button {
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        margin: 40px auto 0 auto;
+    }
+
+    /* Services Section */
+    .services-grid {
+        grid-template-columns: 1fr; /* Single column for mobile */
+    }
+    .service-headline { font-size: 1.5rem; }
+    .view-work-btn { font-size: 1.2rem; }
+
+    /* Contact Section (Stacking the Headline) */
+    .contact-cta-headline {
+        font-size: 2rem;
+        display: block; /* Stack the elements */
+        white-space: normal; 
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .contact-cta-headline .red-text {
+        display: block;
+        line-height: 1.2;
+    }
+    .contact-form {
+        grid-template-columns: 1fr; /* Single column for form fields */
+        gap: 15px;
+    }
+    .contact-form button {
+        width: 100%;
+        max-width: 200px;
+        font-size: 1.2rem;
+    }
+}
+
+
+
+/* --- OFF-CANVAS MENU STYLING (Responsive Update) --- */
+.off-canvas-menu {
+    position: fixed;
+    top: 0;
+    right: -35%; 
+    width: 35%; 
+    height: 100vh;
+    background-color: #ce2a0b; 
+    z-index: 1050;
+    transition: right 0.5s cubic-bezier(0.86, 0, 0.07, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end; 
+    padding-right: 3%; /* Reduced padding right for better fit on desktop */
+}
+
+.off-canvas-menu.open {
+    right: 0; 
+}
+
+.menu-links {
+    list-style: none;
+    text-align: right; 
+    /* Ensures the list can shrink/grow as needed */
+    width: 100%; 
+    padding-right: 5%; /* Add some padding on the right for better visual balance */
+}
+
+.menu-links li {
+    /* Adjusted margin for slightly less space */
+    margin: 30px 0; 
+    overflow: hidden;
+}
+
+.menu-links a {
+    text-decoration: none;
+    color: #000; 
+    font-family: 'Impact', sans-serif;
+    font-weight: 400;
+    
+    /* NEW: Responsive Font Size using clamp() or a combination of units */
+    /* Clamp sets a minimum, a fluid preferred, and a maximum size: 3rem minimum, 3.5vw preferred, 4.5rem maximum */
+    font-size: clamp(3rem, 3.5vw, 4.5rem); 
+    
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: inline-block;
+    transition: color 0.3s;
+    line-height: 1; 
+}
+
+.menu-links a:hover {
+    color: #EDEDED; 
+}
+
+/* Specific adjustment for smaller mobile screens */
+@media (max-width: 768px) {
+    .off-canvas-menu {
+        /* On mobile, use a larger width for better touch target and visibility */
+        width: 75%; 
+        right: -75%;
+    }
+    
+    .menu-links li {
+        margin: 20px 0; /* Reduced margin */
+    }
+    
+    .menu-links a {
+        /* Smaller, more suitable font size for mobile view */
+        font-size: 2.8rem; 
+        /* Removing clamp for consistency on small screens, using a fixed-size */
+    }
+}
+
+@media (min-width: 2560px) {
+
+    
+
+    
+    .menu-links a {
+        /* Smaller, more suitable font size for mobile view */
+        font-size: 7rem; 
+        /* Removing clamp for consistency on small screens, using a fixed-size */
+    }
+}
+
+
+@media (max-width: 425px) {
+    .off-canvas-menu {
+        /* On mobile, use a larger width for better touch target and visibility */
+        width: 75%; 
+        right: -75%;
+    }
+    
+    .menu-links li {
+        margin: 20px 0; /* Reduced margin */
+    }
+    
+    .menu-links a {
+        /* Smaller, more suitable font size for mobile view */
+        font-size: 2.5rem; 
+        /* Removing clamp for consistency on small screens, using a fixed-size */
+    }
+}
+
