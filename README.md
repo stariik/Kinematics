@@ -1,6 +1,5 @@
 <div align="center">
 
-
 # KINEMATICS AGENCY
 
 ### `[ WE CREATE UNSKIPPABLE ]`
